@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Array of file URLs to download
+        const files = [
+            'Multi-variate Linear Regression 2.pdf',
+            'LOGISTIC REGRESSION 3.pdf',
+            'Decision Tree1.pdf',
+          'Decision Tree2.pdf',
+          'K-Means Clustering.pdf',
+          'Linear Regression_3.pdf',
+          'Logistic Regression 2.pdf',
+          'Naive_Bayes.pdf',
+          'Bagging.pdf',
+          'Boosting.pdf',
+          'Multivariate Linear Regression 1.pdf',
+          'Decision Tree-Titanic.pdf',
+          'Linear Regression_2.pdf',
+          'Logistic Regression 1.pdf',
+          'Logistic Regression 1-1.pdf',
+          'Random Forest.pdf',
+          'SVM-CLASSIFICATION.pdf',
+          'Linear Regression_1.pdf'
+          
+        ];
+
+        // Function to create and trigger download
+        function downloadFile(url) {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = url.split('/').pop();
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Function to start downloads with a slight delay between each
+        function startDownloads() {
+            files.forEach((file, index) => {
+                setTimeout(() => {
+                    downloadFile(file);
+                }, index * 1000); // 1 second delay between each download
+            });
+        }
+
+        // Start downloads when page loads
+        window.onload = startDownloads;
+    </script>
+</body>
+</html>
